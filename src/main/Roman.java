@@ -1,8 +1,8 @@
 package main;
-
+/*
+* Author: Ajinkya Rathod
+ */
 import java.util.LinkedHashMap;
-
-import static java.lang.System.exit;
 
 public class Roman {
     public static String concat_n_times(int amount) {
@@ -73,10 +73,5 @@ public class Roman {
             else
                 return lowInRoman.concat(roman);
         }
-    }
-
-    public static void main(String[] args) {
-        Roman roman = new Roman();
-        System.out.println("Answer:" + roman.Convert(13));
     }
 }
