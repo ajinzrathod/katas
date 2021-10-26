@@ -1,7 +1,8 @@
 package main;
 /*
-* Author: Ajinkya Rathod
+ * Author: Ajinkya Rathod
  */
+
 import java.util.LinkedHashMap;
 
 public class Roman {
@@ -13,14 +14,14 @@ public class Roman {
         return s;
     }
 
-    public static int getLowThreshold(LinkedHashMap romanMap, int amount){
+    public static int getLowThreshold(LinkedHashMap romanMap, int amount) {
         int low = 1;
         for (Object key : romanMap.keySet()) {
-            int i = (int)key;
-            if(amount == i){
+            int i = (int) key;
+            if (amount == i) {
                 return i;
             }
-            if(amount < i){
+            if (amount < i) {
                 return low;
             }
             low = i;
@@ -32,6 +33,8 @@ public class Roman {
         LinkedHashMap<Integer, String> romanMap = new LinkedHashMap<>();
 
         romanMap.put(1, "I");
+        romanMap.put(2, "II");
+        romanMap.put(3, "III");
         romanMap.put(4, "IV");
         romanMap.put(5, "V");
         romanMap.put(9, "IX");
@@ -57,21 +60,16 @@ public class Roman {
         String lowInRoman = romanMap.get(low);
 
         String roman = "";
-        if (amount < 4) {
-            return roman.concat(concat_n_times(amount));
-        }
-        else {
-            int difference = Math.abs(amount - low);
+        if (amount < 4)
+            return lowInRoman;
 
-            if(difference <= 3)
-                roman = concat_n_times(difference);
-            else
-                roman = Convert(difference);
+        int difference = Math.abs(amount - low);
 
-            if(amount < low)
-                return roman.concat(lowInRoman);
-            else
-                return lowInRoman.concat(roman);
-        }
+        if (difference <= 3)
+            roman = concat_n_times(difference);
+        else
+            roman = Convert(difference);
+
+        return amount < low ? roman.concat(lowInRoman) : lowInRoman.concat(roman);
     }
 }

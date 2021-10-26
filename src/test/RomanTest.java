@@ -20,6 +20,8 @@ public class RomanTest {
 
         romanMap = new LinkedHashMap<>();
         romanMap.put(1, "I");
+        romanMap.put(2, "II");
+        romanMap.put(3, "III");
         romanMap.put(4, "IV");
         romanMap.put(5, "V");
         romanMap.put(9, "IX");
@@ -300,7 +302,7 @@ public class RomanTest {
         assertEquals(Roman.getLowThreshold(romanMap, 1), 1);
     }
     public void lowThreshold3(){
-        assertEquals(Roman.getLowThreshold(romanMap, 3), 1);
+        assertEquals(Roman.getLowThreshold(romanMap, 3), 3);
     }
     public void lowThreshold5(){
         assertEquals(Roman.getLowThreshold(romanMap, 5), 5);
